@@ -4,12 +4,14 @@ import axios from "axios";
 
 import Charts from "./components/Charts";
 import Navbar from "./components/Navbar";
+import { useDarkMode } from "./components/hooks/useDarkMode";
 
 import "./styles.scss";
 
 const App = () => {
   const [coinData, setCoinData] = useState([]);
-  const [darkMode, setDarkMode] = useState(false);
+  // const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useDarkMode(true);
 
   useEffect(() => {
     axios
@@ -26,6 +28,6 @@ const App = () => {
     </div>
   );
 };
-
+ 
 const rootElement = document.getElementById("root");
 ReactDOM.render(<App />, rootElement);
